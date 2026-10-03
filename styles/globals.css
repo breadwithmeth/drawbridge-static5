@@ -4,24 +4,77 @@
 
 body {
 	overflow-x: hidden;
-	background-color: #000000;
+	background-color: #ffffff;
+	color: #141312;
+	font-family: var(--font-manrope), Manrope, -apple-system, "Helvetica Neue", Arial,
+		sans-serif;
 }
 
 body::-webkit-scrollbar {
 	width: 0%;
 }
 
-@font-face {
-	src: url("../fonts/63bf3e1c32ea7b11e01bdf94_HelveticaNeue-Light.otf");
-	font-family: "helveticaNeue";
+/* ---- hand-painted plastic toy motion primitives ---- */
+
+@keyframes toy-float {
+	0%, 100% { transform: translateY(0) rotate(0deg); }
+	50% { transform: translateY(-10px) rotate(1.2deg); }
 }
 
-@font-face {
-	src: url("../fonts/63bf3e1c32ea7b80ef1bdf9f_bodoni-seventytwo-itc-book-italic.ttf");
-	font-family: "bodoniseventytwo";
+@keyframes toy-float-slow {
+	0%, 100% { transform: translateY(0) rotate(0deg); }
+	50% { transform: translateY(-6px) rotate(-1deg); }
 }
 
-@font-face {
-	src: url("../fonts/63bf3e1c32ea7bb19e1bdfad_Humane-Medium.otf");
-	font-family: "humaneMedium";
+@keyframes module-slide {
+	0% { transform: translateX(0); opacity: 0; }
+	8% { opacity: 1; }
+	48% { opacity: 1; }
+	56% { transform: translateX(var(--slide-dist, 120px)); opacity: 0; }
+	100% { transform: translateX(var(--slide-dist, 120px)); opacity: 0; }
+}
+
+@keyframes toy-fall {
+	0% { transform: translateY(0); opacity: 0; }
+	10% { opacity: 1; }
+	60% { opacity: 1; }
+	70% { transform: translateY(var(--fall-dist, 110px)); opacity: 0; }
+	100% { transform: translateY(var(--fall-dist, 110px)); opacity: 0; }
+}
+
+@keyframes slow-spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+.toy-float {
+	animation: toy-float 6s ease-in-out infinite;
+	transform-origin: center;
+}
+
+.toy-float-slow {
+	animation: toy-float-slow 8s ease-in-out infinite;
+	transform-origin: center;
+}
+
+.toy-module {
+	animation: module-slide 3.6s cubic-bezier(0.45, 0, 0.3, 1) infinite;
+}
+
+.toy-fall {
+	animation: toy-fall 3s cubic-bezier(0.55, 0, 0.6, 1) infinite;
+}
+
+.toy-spin {
+	animation: slow-spin 14s linear infinite;
+	transform-origin: center;
+	transform-box: fill-box;
+}
+
+/* small mono technical label */
+.mono-label {
+	font-family: var(--font-mono), ui-monospace, monospace;
+	font-size: 11px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 }

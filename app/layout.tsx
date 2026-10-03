@@ -1,25 +1,20 @@
 import { Navbar } from "@/components";
 import { I18nProvider } from "@/i18n/context";
-import { Unbounded, Geologica, Manrope } from "next/font/google";
+import { Manrope, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 
-const unbounded = Unbounded({
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-unbounded",
-  display: "swap",
-});
-
-const geologica = Geologica({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-geologica",
-  display: "swap",
-});
-
 const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-manrope",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -37,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body
-        className={`${unbounded.variable} ${geologica.variable} ${manrope.variable}`}
+        className={`${manrope.variable} ${jetbrainsMono.variable}`}
       >
         <I18nProvider>
           <Navbar />

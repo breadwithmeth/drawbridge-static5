@@ -9,23 +9,23 @@ export default function Event({
   scrollYProgress: MotionValue<number>;
 }) {
   const { t } = useI18n();
-  const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [2, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.94, 1]);
   return (
     <motion.div
       id="services"
       style={{ scale, rotate }}
-      className="w-full min-h-screen bg-eventBgColor sticky top-0 left-0">
-      <div className="w-full flex items-center justify-between gap-2 pt-36 md:pt-60 px-5 md:px-10">
-        <span className="flex text-[13vw] md:text-[110px] uppercase leading-none font-humaneMedium text-white">
+      className="w-full min-h-screen bg-paperWarm sticky top-0 left-0">
+      <div className="w-full flex items-end justify-between gap-2 pt-32 md:pt-56 px-5 md:px-10">
+        <span className="flex text-[13vw] md:text-[110px] uppercase leading-none font-extrabold text-ink tracking-[-0.03em]">
           {t.directions.big.split("").map((item: string, i: number) => (
             <motion.p
               initial={{ y: "100%" }}
               whileInView={{ y: 0 }}
               transition={{
-                delay: i * 0.05,
-                duration: 0.5,
-                ease: [0.4, 0, 0.2, 1],
+                delay: i * 0.04,
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
               }}
               viewport={{ once: true }}
               key={i}>
@@ -33,13 +33,13 @@ export default function Event({
             </motion.p>
           ))}
         </span>
-        <h1 className="hidden md:block text-[22px] font-helveticaNeue leading-[0.9] text-white uppercase text-right">
+        <h1 className="hidden md:block text-[18px] font-medium leading-[1.1] text-ink/70 uppercase text-right max-w-[360px]">
           {t.directions.subtitlePre}{" "}
-          <span className="text-[32px] font-bodoniseventytwo leading-[0.9] lowercase">
+          <span className="text-[26px] font-bold text-ink lowercase">
             {t.directions.subtitleAccent1}{" "}
           </span>
           {t.directions.subtitleMid}{" "}
-          <span className="text-[32px] font-bodoniseventytwo leading-[0.9] lowercase">
+          <span className="text-[26px] font-bold text-ink lowercase">
             {t.directions.subtitleAccent2}
           </span>
           {t.directions.subtitlePost}

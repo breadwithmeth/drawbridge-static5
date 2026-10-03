@@ -1,11 +1,20 @@
 "use client";
-import Image from "next/image";
 import { useRef } from "react";
 import { Sticky } from "@/components";
 import { directionItems } from "@/constants";
+import {
+  ToyDevice,
+  ToyBrain,
+  ToyBridge,
+  ToyNode,
+} from "@/components/toys";
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 import { useI18n } from "@/i18n/context";
+
+const toys = [ToyDevice, ToyBrain, ToyBridge, ToyNode];
+const accents = ["#F96A1B", "#2B4EE6", "#F0533F", "#5FD3A5"];
 
 export default function Slider() {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -36,50 +45,35 @@ export default function Slider() {
             onSwiper={(swiper) => (swiperRef.current = swiper)}>
             {directionItems.map((item, i) => {
               const text = t.directions.items[i];
+              const Toy = toys[i % toys.length];
+              const accent = accents[i % accents.length];
               return (
                 <SwiperSlide key={item.id}>
-                  <div className="swiper-slide h-[70vh] md:h-[800px] cursor-pointer relative overflow-hidden">
-                    <Image
-                      src={item.src}
-                      alt={text.h1}
-                      fill
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-0 w-full h-full p-5 md:p-8">
-                      <div className="w-full h-full flex flex-col justify-between">
-                        <div className="flex w-full items-start justify-between gap-2">
-                          <div className="flex flex-col gap-2">
-                            <h2
-                              className="text-[16px] uppercase leading-[1.1]"
-                              style={{ color: item.color }}>
-                              {text.h1}
-                            </h2>
-                            <h2
-                              className="text-[16px] uppercase leading-[1.1]"
-                              style={{ color: item.color }}>
-                              {text.num}
-                            </h2>
-                          </div>
-                          <div className="flex items-end justify-end">
-                            <p
-                              className="text-[16px] leading-tight font-helveticaNeue tracking-tight border-[1.5px] py-1 px-3 rounded-full uppercase"
-                              style={{
-                                color: item.color,
-                                borderColor: item.color,
-                              }}>
-                              {text.btn}
-                            </p>
-                          </div>
+                  <div className="swiper-slide h-[70vh] md:h-[720px] cursor-pointer relative p-3 md:p-4">
+                    <div className="w-full h-full bg-paper rounded-[24px] md:rounded-[32px] border border-line shadow-card relative overflow-hidden flex flex-col">
+                      {/* toy illustration */}
+                      <div className="flex-1 flex items-center justify-center px-8 pt-10">
+                        <div className="w-[70%] max-w-[340px] toy-float-slow">
+                          <Toy />
                         </div>
-                        <div className="flex w-full items-start justify-between gap-2">
-                          <div className="flex flex-col gap-2">
-                            <h2 className="text-[6vw] md:text-[44px] uppercase tracking-wide leading-[1.05] text-white font-humaneMedium">
-                              {text.t1}
-                              <br />
-                              {text.t2}
-                            </h2>
-                          </div>
+                      </div>
+                      <div className="w-full p-6 md:p-8 flex flex-col gap-4">
+                        <div className="flex items-start justify-between gap-2">
+                          <span className="mono-label text-ink/40">{text.num}</span>
+                          <span
+                            className="mono-label px-3 py-1 rounded-full border-[1.5px]"
+                            style={{ color: accent, borderColor: accent }}>
+                            {text.btn}
+                          </span>
                         </div>
+                        <h2 className="text-[7vw] md:text-[38px] font-extrabold uppercase tracking-[-0.02em] leading-[1] text-ink">
+                          {text.t1}
+                          <br />
+                          {text.t2}
+                        </h2>
+                        <h2 className="text-[15px] font-semibold uppercase leading-[1.1] text-ink/70">
+                          {text.h1}
+                        </h2>
                       </div>
                     </div>
                   </div>

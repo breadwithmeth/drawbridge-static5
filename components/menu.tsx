@@ -1,7 +1,5 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
-import { menuDrop } from "@/public";
 import TextHover from "./text-hover";
 import { motion } from "framer-motion";
 import { useI18n } from "@/i18n/context";
@@ -12,62 +10,55 @@ export default function Menu() {
   const { t } = useI18n();
 
   return (
-    <motion.div
-      initial={{ y: -430 }}
-      animate={hidden ? { y: -430 } : { y: -30 }}
-      transition={{ duration: 0.8, ease: "backInOut", type: "tween" }}
-      className="absolute -translate-x-1/2 left-[62%] md:left-[35%] z-[999]">
-      <div className="bg-greenColor p-6 md:p-10 w-[92vw] md:w-[540px] rounded-[30px] md:rounded-[50px] -mb-24 z-[999]">
-        {t.nav.map((item) => (
-          <a
-            key={item.id}
-            href={item.href}
-            onClick={() => setHidden(true)}
-            className="flex py-2 flex-col cursor-pointer">
-            <TextHover
-              titile1={item.title}
-              titile2={item.title}
-            />
-            <span className="w-full border-b border-[#1c1c1c33]" />
-          </a>
-        ))}
-        <div className="w-full flex items-center justify-center py-3 gap-2">
-          <LangSwitcher />
+    <div className="relative -translate-x-1/2 left-[62%] md:left-[35%] z-[999]">
+      {/* sliding panel */}
+      <motion.div
+        initial={{ y: -600 }}
+        animate={hidden ? { y: -600 } : { y: 0 }}
+        transition={{ duration: 0.6, ease: [0.34, 1.2, 0.4, 1], type: "tween" }}
+        className="fixed top-24 left-1/2 ml-[-46vw] w-[92vw] md:ml-[-270px] md:w-[540px]">
+        <div className="bg-paperWarm p-6 md:p-10 rounded-[20px] md:rounded-[28px] shadow-card border border-line">
+          {t.nav.map((item) => (
+            <a
+              key={item.id}
+              href={item.href}
+              onClick={() => setHidden(true)}
+              className="flex py-2 flex-col cursor-pointer group">
+              <TextHover
+                titile1={item.title}
+                titile2={item.title}
+              />
+              <span className="w-full border-b border-line group-hover:border-orange transition-colors" />
+            </a>
+          ))}
+          <div className="w-full flex items-center justify-center py-3 gap-2">
+            <LangSwitcher />
+          </div>
         </div>
-      </div>
-      <div
+      </motion.div>
+      {/* always-visible burger */}
+      <button
+        type="button"
         onClick={() => setHidden(!hidden)}
-        className="relative cursor-pointer">
-        <Image
-          src={menuDrop}
-          alt="menuDrop"
-          width={180}
-          height={180}
-          className="w-full h-full object-cover"
+        aria-label={hidden ? "Открыть меню" : "Закрыть меню"}
+        aria-expanded={!hidden}
+        className="relative cursor-pointer w-12 h-12 md:w-14 md:h-14 rounded-[16px] bg-ink shadow-card flex flex-col items-center justify-center gap-[5px] transition-transform duration-200 active:scale-95">
+        <span
+          className={`w-[22px] h-[2px] transition ease-out duration-200 bg-white ${
+            !hidden ? "rotate-45 translate-y-[7px]" : ""
+          }`}
         />
-        <div className="absolute left-1/2 bottom-5 -translate-x-1/2">
-          <button
-            type="button"
-            onClick={() => setHidden(!hidden)}
-            className="cursor-pointer">
-            <div
-              className={`w-[28px] h-[2px] transition ease-in duration-150  bg-black/50 ${
-                !hidden ? "rotate-45 mb-0  translate-y-[1px]" : "rotate-0 mb-1"
-              } `}
-            />
-            <div
-              className={`w-[28px] h-[2px] transition ease-in duration-150 bg-black/50 ${
-                !hidden ? "hidden mb-0" : "mb-1"
-              } `}
-            />
-            <div
-              className={`w-[28px] h-[2px] transition ease-in duration-150 bg-black/50  ${
-                !hidden ? "-rotate-45 mb-0" : "rotate-0"
-              }`}
-            />
-          </button>
-        </div>
-      </div>
-    </motion.div>
+        <span
+          className={`w-[22px] h-[2px] transition ease-out duration-200 bg-white ${
+            !hidden ? "opacity-0" : ""
+          }`}
+        />
+        <span
+          className={`w-[22px] h-[2px] transition ease-out duration-200 bg-white ${
+            !hidden ? "-rotate-45 -translate-y-[7px]" : ""
+          }`}
+        />
+      </button>
+    </div>
   );
 }

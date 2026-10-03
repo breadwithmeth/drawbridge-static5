@@ -3,7 +3,6 @@ export { default as Hero } from "./hero";
 export { default as Button } from "./button";
 export { default as Menu } from "./menu";
 export { default as Event } from "./event";
-export { default as Eye } from "./eye";
 export { default as Slider } from "./slider";
 export { default as Sticky } from "./sticky";
 export { default as WhoWeAre } from "./who-we-are";
@@ -13,3 +12,18 @@ export { default as TheTutors } from "./the-tutors";
 export { default as WhatWeDo } from "./what-we-do";
 export { default as PartyTolls } from "./party-tolls";
 export { default as Footer } from "./footer";
+export {
+  ToyPipeline,
+  ToyMonitor,
+  ToyCloud,
+  ToyAutomation,
+  ToyDevice,
+  ToyBrain,
+  ToyBridge,
+  ToyNode,
+  ToyShell,
+  ToyTubes,
+  ToyDisc,
+  PaintStroke,
+  PaintBlob,
+} from "./toys";

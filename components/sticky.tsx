@@ -53,14 +53,14 @@ export default function Sticky() {
 
 	return (
 		<motion.div
-			className="fixed rounded-[50px] z-[100] bg-white p-4 pointer-events-none"
+			className="fixed rounded-[14px] z-[100] bg-ink text-white p-3.5 pointer-events-none shadow-card"
 			style={{
 				left: smoothMouse.x,
 				top: smoothMouse.y,
 			}}>
 			<div className="flex items-center gap-2 justify-center">
 				<BsArrowLeft size={10} />
-				<h1 className="text-black text-center uppercase font-helveticaNeue font-medium text-sm">
+				<h1 className="text-white text-center uppercase font-mono font-medium text-xs tracking-widest">
 					Drag
 				</h1>
 				<BsArrowRight size={10} />

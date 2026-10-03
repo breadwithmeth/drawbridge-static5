@@ -11,15 +11,15 @@ export default function AnimatedText({
 	const displayText = typeof text === "string" ? text : "";
 	return (
 		<span
-			className={`flex uppercase font-humaneMedium overflow-hidden ${className}`}>
+			className={`flex overflow-hidden font-extrabold uppercase ${className}`}>
 			{displayText.split(" ").map((word, index) => (
 				<motion.p
 					initial={{ y: "100%" }}
 					whileInView={{ y: 0 }}
 					transition={{
-						delay: index * 0.08,
-						duration: 1,
-						ease: [0.4, 0, 0.2, 1],
+						delay: index * 0.06,
+						duration: 0.9,
+						ease: [0.22, 1, 0.36, 1],
 					}}
 					viewport={{ once: true }}
 					key={index}

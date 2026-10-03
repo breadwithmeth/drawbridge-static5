@@ -9,15 +9,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        heroColor: "#FF6B00",
-        greenColor: "#FFC700",
-        eventBgColor: "#1C1C1C",
+        ink: "#141312",
+        paper: "#FFFFFF",
+        paperWarm: "#FAF7F2",
+        orange: {
+          DEFAULT: "#F96A1B",
+          soft: "#FF8B47",
+          deep: "#D9540E",
+        },
+        cobalt: "#2B4EE6",
+        yellow: "#FFC529",
+        mint: "#5FD3A5",
+        coral: "#F0533F",
+        line: "#E8E2D8",
       },
       fontFamily: {
-        helveticaNeue: ['var(--font-manrope)', 'Manrope', 'sans-serif'],
-        bodoniseventytwo: ['var(--font-geologica)', 'Geologica', 'sans-serif'],
-        humaneMedium: ['var(--font-unbounded)', 'Unbounded', 'sans-serif'],
-      }
+        sans: ['var(--font-manrope)', 'Manrope', 'sans-serif'],
+        mono: ['var(--font-mono)', 'JetBrains Mono', 'ui-monospace', 'monospace'],
+      },
+      boxShadow: {
+        card: "0 1px 2px rgba(20,19,18,0.04), 0 8px 24px rgba(20,19,18,0.06)",
+        toy: "0 24px 40px -18px rgba(20,19,18,0.22)",
+      },
     },
   },
   plugins: [],

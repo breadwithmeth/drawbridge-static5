@@ -31,10 +31,10 @@ export const decorPhotos = [
 
 // Colors for the 4 approach stage cards
 export const stageItems = [
-  { id: 1, color: "#FF6B00", text: "#fff" },
-  { id: 2, color: "#FFB03B", text: "#1c1c1c" },
-  { id: 3, color: "#FFC700", text: "#1c1c1c" },
-  { id: 4, color: "#1c1c1c", text: "#fff" },
+  { id: 1, color: "#F96A1B", text: "#fff" },
+  { id: 2, color: "#5FD3A5", text: "#141312" },
+  { id: 3, color: "#FFC529", text: "#141312" },
+  { id: 4, color: "#141312", text: "#fff" },
 ];
 
 export const serviceArrow = arrowUp;
