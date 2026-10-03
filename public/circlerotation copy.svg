@@ -1,0 +1,10 @@
+<svg width="273" height="273" viewBox="0 0 273 273" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path id="circ" d="M136.5,136.5 m-105,0 a105,105 0 1,1 210,0 a105,105 0 1,1 -210,0" />
+</defs>
+<g transform="rotate(-90 136.5 136.5)">
+<text font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="600" letter-spacing="6" fill="#231F20">
+<textPath href="#circ">DRAWBRIDGE · DRAWBRIDGE · DRAWBRIDGE ·</textPath>
+</text>
+</g>
+</svg>
