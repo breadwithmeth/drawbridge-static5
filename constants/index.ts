@@ -20,11 +20,8 @@ export const directionItems = [
 
 export const approachBg = u("approach-bg.jpg"); // dark earth network
 
-export const devopsPhotos = [
-  u("devops-cicd.jpg"), // code review / CI-CD
-  u("devops-monitoring.jpg"), // charts / monitoring
-  u("devops-cloud.jpg"), // server room / cloud
-];
+// 3D illustrations for the DevOps cards
+export const devopsPhotos = ["/cicd.jpg", "/monitoring.jpg", "/cloud.jpg"];
 
 export const decorPhotos = [
   u("decor-1.jpg"), // abstract wave
